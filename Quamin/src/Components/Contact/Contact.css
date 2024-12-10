@@ -133,3 +133,22 @@
         padding: 20px;
     }
 }
+
+@media (max-width: 768px) {
+    .contact-col h3 {
+        font-size: 24px;
+    }
+
+    .contact-col p {
+        font-size: 14px;
+    }
+
+    .contact-col ul li {
+        font-size: 16px;
+    }
+
+    .contactsocialiconsmobile {
+        display: flex;
+        justify-content: space-between;
+    }
+}

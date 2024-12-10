@@ -53,3 +53,17 @@
         flex-basis: 100%;
     }
 }
+
+@media (max-width: 768px) {
+    .book h3 {
+        font-size: 12px;
+    }
+
+    .book h2 {
+        font-size: 24px;
+    }
+
+    .book p {
+        font-size: 14px;
+    }
+}

@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
 const Contact = () => {
@@ -12,8 +12,8 @@ const Contact = () => {
         setSubmitting(true);
 
         emailjs
-            .sendForm('service_dh7tt5h', 'template_onbsrie', form.current, {
-                publicKey: 'w8gvnVlMTQqOdjzRm',
+            .sendForm("service_dh7tt5h", "template_onbsrie", form.current, {
+                publicKey: "w8gvnVlMTQqOdjzRm",
             })
             .then(
                 () => {
@@ -30,17 +30,60 @@ const Contact = () => {
     return (
         <div className="contact">
             <div className="contact-col">
-                <h3>Send us a Message<i className="fa-solid fa-message"></i></h3>
-                <p>At Quamin, we deliver tailored IT solutions designed to meet the specific needs of each client. With over two decades of industry expertise, our founder, Manish K, leads a skilled team specializing in cloud engineering, cybersecurity, DevOps, generative AI, and database administration.</p>
+                <h3>
+                    Send us a Message<i className="fa-solid fa-message"></i>
+                </h3>
+                <p>
+                    At Quamin, we deliver tailored IT solutions designed to meet
+                    the specific needs of each client. With over two decades of
+                    industry expertise, our founder, Manish K, leads a skilled
+                    team specializing in cloud engineering, cybersecurity,
+                    DevOps, generative AI, and database administration.
+                </p>
                 <ul>
-                    <li><i className="fa-solid fa-envelope"></i>info@quamin.in</li>
-                    <li><i className="fa-solid fa-phone"></i>+91 999 1115 557</li>
-                    <li><i className="fa-solid fa-location-dot"></i>153-155 Franklin Street, New York, New York</li>
                     <li>
-                        <a href="https://www.linkedin.com/company/quamin/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label='linkedin'><i className="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label='facebook'><i className="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label='github'><i className="fa-brands fa-github"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label='youtube'><i className="fa-brands fa-youtube"></i></a>
+                        <i className="fa-solid fa-envelope"></i>info@quamin.in
+                    </li>
+                    <li>
+                        <i className="fa-solid fa-phone"></i>+91 999 1115 557
+                    </li>
+                    <li>
+                        <i className="fa-solid fa-location-dot"></i>153-155
+                        Franklin Street, New York, New York
+                    </li>
+                    <li className="contactsocialiconsmobile">
+                        <a
+                            href="https://www.linkedin.com/company/quamin/posts/?feedView=all"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="linkedin"
+                        >
+                            <i className="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a
+                            href="https://www.facebook.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="facebook"
+                        >
+                            <i className="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a
+                            href="https://github.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="github"
+                        >
+                            <i className="fa-brands fa-github"></i>
+                        </a>
+                        <a
+                            href="https://www.youtube.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="youtube"
+                        >
+                            <i className="fa-brands fa-youtube"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -78,7 +121,12 @@ const Contact = () => {
                         placeholder="Enter your message"
                         required
                     />
-                    <button className="btn" type="submit" disabled={submitting} aria-label='submit'>
+                    <button
+                        className="btn"
+                        type="submit"
+                        disabled={submitting}
+                        aria-label="submit"
+                    >
                         Submit
                     </button>
                     {succeeded && <p>Form Submitted Successfully!</p>}

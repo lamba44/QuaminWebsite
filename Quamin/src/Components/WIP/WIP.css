@@ -1,0 +1,18 @@
+.WIP {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    background-color: lightgoldenrodyellow;
+}
+
+.WIP h1 {
+    color: #ffd700;
+    font-size: 120px;
+}
+
+.WIP h2 {
+    font-size: 52px;
+    margin: 40px auto;
+}

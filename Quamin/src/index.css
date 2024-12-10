@@ -73,6 +73,10 @@ a {
     transition: 0.5s;
 }
 
+.comingsoon {
+    font-size: 44px;
+}
+
 /* Media Query */
 @media (max-width: 1200px) {
     .container {

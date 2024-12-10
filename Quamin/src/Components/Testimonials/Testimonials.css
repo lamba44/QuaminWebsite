@@ -108,3 +108,33 @@
         font-size: 12px;
     }
 }
+
+@media (max-width: 500px) {
+    .slider ul {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .slider ul li {
+        width: 100%;
+    }
+
+    .next-btn,
+    .back-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 460px) {
+    .slider ul {
+        grid-template-columns: 1fr;
+    }
+
+    .slide {
+        min-height: 200px;
+        height: 220px;
+    }
+}
