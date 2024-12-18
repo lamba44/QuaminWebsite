@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET; // Access the secret key from .env
 
 exports.verifyToken = (req, res, next) => {
     const token = req.headers["authorization"];
@@ -11,8 +11,8 @@ exports.verifyToken = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        req.adminId = decoded.id;
+        const decoded = jwt.verify(token, JWT_SECRET); // Verifies the JWT using the secret
+        req.adminId = decoded.id; // Decodes and adds the admin ID to the request
         next();
     } catch (err) {
         res.status(401).json({ message: "Invalid token" });
