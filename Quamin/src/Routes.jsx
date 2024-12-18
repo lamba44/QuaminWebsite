@@ -13,7 +13,7 @@ import Admin from "./Pages/Admin";
 import AdminDashboard from "./Pages/AdminDashboard";
 
 const isAuthenticated = () => {
-    return !!localStorage.getItem("adminToken"); // Check if the token exists
+    return !!localStorage.getItem("jwtToken"); // Check if the token exists
 };
 
 const ProtectedRoute = ({ children }) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Styling/Admin.css";
 
@@ -7,6 +7,15 @@ const Admin = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+
+    // State for tracking authentication
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    // Check if the user is authenticated when component loads
+    useEffect(() => {
+        const token = localStorage.getItem("jwtToken");
+        setIsAuthenticated(!!token); // Set the authentication state based on token presence
+    }, []);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -26,8 +35,11 @@ const Admin = () => {
             const data = await response.json();
 
             if (response.ok) {
-                localStorage.setItem("adminToken", data.token); // Store the token in local storage
-                navigate("/admin/dashboard"); // Redirect to the admin dashboard
+                const { token } = data;
+                console.log("Received Token:", token);
+                localStorage.setItem("jwtToken", token); // Store token in localStorage
+                setIsAuthenticated(true); // Update auth state
+                navigate("/admin/dashboard"); // Redirect to dashboard
             } else {
                 setError(data.message || "Invalid credentials");
             }
