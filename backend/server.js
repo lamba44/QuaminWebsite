@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 // Load environment variables from .env file
 dotenv.config();
@@ -30,8 +31,8 @@ mongoose
 
 // Admin schema
 const adminSchema = new mongoose.Schema({
-    username: String,
-    password: String, // You should hash the password before storing it
+    username: { type: String, required: true, unique: true },
+    password: { type: String, required: true }, // Hashed password
 });
 
 const Admin = mongoose.model("Admin", adminSchema);
@@ -43,23 +44,33 @@ const JWT_SECRET = process.env.JWT_SECRET;
 app.post("/api/admin/login", async (req, res) => {
     const { username, password } = req.body;
 
-    // Check if the username and password are correct (for now, it's hardcoded for simplicity)
-    const admin = await Admin.findOne({ username });
+    try {
+        const admin = await Admin.findOne({ username });
 
-    if (!admin || admin.password !== password) {
-        return res.status(401).json({ message: "Invalid credentials" });
+        if (!admin) {
+            return res.status(401).json({ message: "Invalid credentials" });
+        }
+
+        // Compare hashed password
+        const isPasswordValid = await bcrypt.compare(password, admin.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: "Invalid credentials" });
+        }
+
+        // Generate a JWT token
+        const token = jwt.sign({ id: admin._id }, JWT_SECRET, {
+            expiresIn: "1h",
+        });
+
+        res.json({ token });
+    } catch (err) {
+        res.status(500).json({ message: "Server error" });
     }
-
-    // Generate a JWT token
-    const token = jwt.sign({ id: admin._id }, JWT_SECRET, { expiresIn: "1h" });
-
-    // Send the token in the response
-    res.json({ token });
 });
 
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
-    const token = req.headers["authorization"];
+    const token = req.header("Authorization")?.replace("Bearer ", "");
 
     if (!token) {
         return res
@@ -79,6 +90,65 @@ const verifyToken = (req, res, next) => {
 // Protected route for admin dashboard
 app.get("/api/admin/dashboard", verifyToken, (req, res) => {
     res.json({ message: "Welcome to the admin dashboard" });
+});
+
+// Fetch all admins
+app.get("/api/admin/all", verifyToken, async (req, res) => {
+    try {
+        const admins = await Admin.find({}, { password: 0 }); // Exclude passwords
+        res.json(admins);
+    } catch (err) {
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+// Add a new admin
+app.post("/api/admin/create", verifyToken, async (req, res) => {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
+
+    try {
+        // Check if username already exists
+        const existingAdmin = await Admin.findOne({ username });
+        if (existingAdmin) {
+            return res.status(400).json({ message: "Admin already exists" });
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newAdmin = new Admin({ username, password: hashedPassword });
+
+        await newAdmin.save();
+        res.status(201).json({ message: "Admin created successfully" });
+    } catch (err) {
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+// Delete an admin
+app.delete("/api/admin/delete/:id", verifyToken, async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        // Prevent deletion of the currently logged-in admin (optional safeguard)
+        if (req.adminId === id) {
+            return res
+                .status(400)
+                .json({ message: "You cannot delete yourself" });
+        }
+
+        const deletedAdmin = await Admin.findByIdAndDelete(id);
+        if (!deletedAdmin) {
+            return res.status(404).json({ message: "Admin not found" });
+        }
+
+        res.json({ message: "Admin deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ message: "Server error" });
+    }
 });
 
 // Start the server

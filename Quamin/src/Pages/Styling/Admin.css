@@ -68,6 +68,12 @@
 
 .error-message {
     text-align: center;
-    color: red;
+    color: #ff0000;
+    font-weight: 600;
+}
+
+.success-message {
+    text-align: center;
+    color: #50c878;
     font-weight: 600;
 }

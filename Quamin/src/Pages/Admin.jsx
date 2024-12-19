@@ -8,13 +8,11 @@ const Admin = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    // State for tracking authentication
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    // Check if the user is authenticated when component loads
     useEffect(() => {
         const token = localStorage.getItem("jwtToken");
-        setIsAuthenticated(!!token); // Set the authentication state based on token presence
+        setIsAuthenticated(!!token);
     }, []);
 
     const handleLogin = async (e) => {
@@ -37,9 +35,9 @@ const Admin = () => {
             if (response.ok) {
                 const { token } = data;
                 console.log("Received Token:", token);
-                localStorage.setItem("jwtToken", token); // Store token in localStorage
-                setIsAuthenticated(true); // Update auth state
-                navigate("/admin/dashboard"); // Redirect to dashboard
+                localStorage.setItem("jwtToken", token);
+                setIsAuthenticated(true);
+                navigate("/admin/dashboard");
             } else {
                 setError(data.message || "Invalid credentials");
             }
@@ -84,6 +82,13 @@ const Admin = () => {
                 <div className="adminbtns">
                     <button type="submit" className="btn">
                         Log In
+                    </button>
+                    <button
+                        type="button"
+                        className="btn"
+                        onClick={() => navigate("/")}
+                    >
+                        Go Home
                     </button>
                 </div>
             </form>

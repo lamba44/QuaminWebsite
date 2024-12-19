@@ -1,31 +1,61 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Styling/AdminDashboard.css";
+import Title from "../Components/Title/Title";
 
 const AdminDashboard = () => {
     const navigate = useNavigate();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    // Check if the user is authenticated when the component mounts
     useEffect(() => {
         const token = localStorage.getItem("jwtToken");
-        setIsAuthenticated(!!token); // Set the state based on token presence
+        setIsAuthenticated(!!token);
         if (!token) {
-            navigate("/admin"); // Redirect to login page if no token found
+            navigate("/admin");
         }
     }, [navigate]);
 
     const handleLogout = () => {
-        localStorage.removeItem("jwtToken"); // Remove token from localStorage
-        setIsAuthenticated(false); // Update state to reflect logout
-        navigate("/admin"); // Redirect to login page
+        localStorage.removeItem("jwtToken");
+        setIsAuthenticated(false);
+        navigate("/admin");
     };
 
     return (
-        <div>
-            <h1>Admin Dashboard</h1>
-            {/* Add dashboard content here */}
-            <button onClick={handleLogout}>Log Out</button>
-        </div>
+        <>
+            <Title
+                subTitle="Control website sections here"
+                title="Admin Dashboard"
+            />
+            <div className="adminlogoutbtn">
+                <button onClick={handleLogout} className="btn adminlogout">
+                    Log Out
+                </button>
+            </div>
+            <section className="admingrid">
+                <div className="adminitem">
+                    <p className="adminitemtitle">Blogs</p>
+                    <button className="btn">Control</button>
+                </div>
+                <div className="adminitem">
+                    <p className="adminitemtitle">Services</p>
+                    <button className="btn">Control</button>
+                </div>
+                <div className="adminitem">
+                    <p className="adminitemtitle">Jobs</p>
+                    <button className="btn">Control</button>
+                </div>
+                <div className="adminitem">
+                    <p className="adminitemtitle">Admins</p>
+                    <button
+                        className="btn"
+                        onClick={() => navigate("/admin/dashboard/admins")}
+                    >
+                        Control
+                    </button>
+                </div>
+            </section>
+        </>
     );
 };
 

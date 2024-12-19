@@ -11,6 +11,7 @@ import ServiceBooking from "./Pages/ServiceBooking";
 import NotFound404 from "./Pages/NotFound404";
 import Admin from "./Pages/Admin";
 import AdminDashboard from "./Pages/AdminDashboard";
+import AdminControl from "./Pages/AdminControl"; // Import the new AdminControl page
 
 const isAuthenticated = () => {
     return !!localStorage.getItem("jwtToken"); // Check if the token exists
@@ -33,6 +34,14 @@ const AppRoutes = () => {
                     element={
                         <ProtectedRoute>
                             <AdminDashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admin/dashboard/admins"
+                    element={
+                        <ProtectedRoute>
+                            <AdminControl />
                         </ProtectedRoute>
                     }
                 />
