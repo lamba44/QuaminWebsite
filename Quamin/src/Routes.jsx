@@ -12,6 +12,8 @@ import NotFound404 from "./Pages/NotFound404";
 import Admin from "./Pages/Admin";
 import AdminDashboard from "./Pages/AdminDashboard";
 import AdminControl from "./Pages/AdminControl"; // Import the new AdminControl page
+import BlogHome from "./Pages/BlogHome";
+import BlogIndividual from "./Pages/BlogIndividual";
 
 const isAuthenticated = () => {
     return !!localStorage.getItem("jwtToken"); // Check if the token exists
@@ -28,6 +30,8 @@ const AppRoutes = () => {
                 <Route path="/" element={<App />} />
                 <Route path="/jobs" element={<JobApplication />} />
                 <Route path="/services" element={<ServiceBooking />} />
+                <Route path="/blogs" element={<BlogHome />} />
+                <Route path="/blogs/blogind" element={<BlogIndividual />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route
                     path="/admin/dashboard"
