@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Styling/BlogIndividual.css";
-import sampleImg from "./../assets/blog-hero.webp";
-import { useNavigate } from "react-router-dom";
 
 const BlogIndividual = () => {
+    const { id } = useParams();
+    const [blog, setBlog] = useState(null);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchBlog = async () => {
+            try {
+                const response = await axios.get(
+                    `http://localhost:5000/api/blogs/${id}`
+                );
+                setBlog(response.data);
+            } catch (err) {
+                console.error("Error fetching blog:", err);
+            }
+        };
+        fetchBlog();
+    }, [id]);
+
+    if (!blog) return <p>Loading...</p>;
 
     return (
         <div className="container indblogcontainer">
@@ -14,45 +32,20 @@ const BlogIndividual = () => {
             >
                 Back
             </button>
-            <h1 className="indblogtitle">
-                Blog Title Goes Here, Should be Multiline like this
-            </h1>
+            <h1 className="indblogtitle">{blog.title}</h1>
             <div className="blogmainimg">
-                <img className="blogmainpic" src={sampleImg} alt="" />
+                <img
+                    className="blogmainpic"
+                    src={blog.image}
+                    alt={blog.title}
+                />
             </div>
-            <p className="indblogdesc">
-                A long one liner description about what the blog has, or maybe
-                just a one liner to attract someone to read the blog and click
-                on it
-            </p>
-            <p className="indblogauthor">Mr. James Bond</p>
-            <p className="indblogcategory">Technology, 25/12/2024</p>
-            <p className="indblogcontent">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                harum dolorum pariatur quam molestias aliquam quidem labore
-                ipsum cum officiis eum aperiam, voluptates, illo facere vero quo
-                eligendi. Quia, velit. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Aut harum dolorum pariatur quam molestias
-                aliquam quidem labore ipsum cum officiis eum aperiam,
-                voluptates, illo facere vero quo eligendi. Quia, velit. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Aut harum
-                dolorum pariatur quam molestias aliquam quidem labore ipsum cum
-                officiis eum aperiam, voluptates, illo facere vero quo eligendi.
-                Quia, velit. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Aut harum dolorum pariatur quam molestias aliquam quidem
-                labore ipsum cum officiis eum aperiam, voluptates, illo facere
-                vero quo eligendi. Quia, velit. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Aut harum dolorum pariatur quam
-                molestias aliquam quidem labore ipsum cum officiis eum aperiam,
-                voluptates, illo facere vero quo eligendi. Quia, velit. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Aut harum
-                dolorum pariatur quam molestias aliquam quidem labore ipsum cum
-                officiis eum aperiam, voluptates, illo facere vero quo eligendi.
-                Quia, velit. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Aut harum dolorum pariatur quam molestias aliquam quidem
-                labore ipsum cum officiis eum aperiam, voluptates, illo facere
-                vero quo eligendi. Quia, velit.
-            </p>
+            <p className="indblogdesc">{blog.description}</p>
+            <p className="indblogauthor">{blog.author}</p>
+            <p className="indblogcategory">{`${blog.category}, ${new Date(
+                blog.date
+            ).toLocaleDateString()}`}</p>
+            <p className="indblogcontent">{blog.content}</p>
         </div>
     );
 };

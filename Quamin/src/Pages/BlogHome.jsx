@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Styling/BlogHome.css";
 import Title from "../Components/Title/Title";
-import { useNavigate } from "react-router-dom";
-import blogSampleImg from "./../assets/about_3.webp";
-import blogSampleImg2 from "./../assets/blog-hero.webp";
 
 const BlogHome = () => {
+    const [blogs, setBlogs] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const response = await axios.get(
+                    "http://localhost:5000/api/blogs"
+                );
+                setBlogs(response.data);
+            } catch (err) {
+                console.error("Error fetching blogs:", err);
+            }
+        };
+        fetchBlogs();
+    }, []);
 
     return (
         <>
@@ -18,121 +32,30 @@ const BlogHome = () => {
             </div>
             <div className="container">
                 <div className="bloggrid">
-                    <div className="blogcard">
-                        <div className="blogcardimg">
-                            <img
-                                className="blogcardpic"
-                                src={blogSampleImg}
-                                alt=""
-                            />
+                    {blogs.map((blog) => (
+                        <div
+                            key={blog._id}
+                            className="blogcard"
+                            onClick={() => navigate(`/blogs/${blog._id}`)}
+                        >
+                            <div className="blogcardimg">
+                                <img
+                                    className="blogcardpic"
+                                    src={blog.image}
+                                    alt={blog.title}
+                                />
+                            </div>
+                            <div className="blogcardinfo">
+                                <p className="blogcategory">{blog.category}</p>
+                                <p className="blogtitle">{blog.title}</p>
+                                <p className="blogauthor">{blog.author}</p>
+                                <p className="blogdesc">{blog.description}</p>
+                                <p className="blogdate">
+                                    {new Date(blog.date).toLocaleDateString()}
+                                </p>
+                            </div>
                         </div>
-                        <div className="blogcardinfo">
-                            <p className="blogcategory">Technology</p>
-                            <p className="blogtitle">
-                                Blog Title Goes Here, Should be Multiline like
-                                this
-                            </p>
-                            <p className="blogauthor">Mr. James Bond</p>
-                            <p className="blogdesc">
-                                A long one liner description about what the blog
-                                has, or maybe just a one liner to attract
-                                someone to read the blog and click on it
-                            </p>
-                            <p className="blogdate">25/12/2024</p>
-                        </div>
-                    </div>
-                    <div className="blogcard">
-                        <div className="blogcardimg">
-                            <img
-                                className="blogcardpic"
-                                src={blogSampleImg2}
-                                alt=""
-                            />
-                        </div>
-                        <div className="blogcardinfo">
-                            <p className="blogcategory">AI/ML</p>
-                            <p className="blogtitle">
-                                Blog Title Goes Here, Should be Multiline like
-                                this
-                            </p>
-                            <p className="blogauthor">Mr. James Bond</p>
-                            <p className="blogdesc">
-                                A long one liner description about what the blog
-                                has, or maybe just a one liner to attract
-                                someone to read the blog and click on it
-                            </p>
-                            <p className="blogdate">25/12/2024</p>
-                        </div>
-                    </div>
-                    <div className="blogcard">
-                        <div className="blogcardimg">
-                            <img
-                                className="blogcardpic"
-                                src={blogSampleImg2}
-                                alt=""
-                            />
-                        </div>
-                        <div className="blogcardinfo">
-                            <p className="blogcategory">AI/ML</p>
-                            <p className="blogtitle">
-                                Blog Title Goes Here, Should be Multiline like
-                                this
-                            </p>
-                            <p className="blogauthor">Mr. James Bond</p>
-                            <p className="blogdesc">
-                                A long one liner description about what the blog
-                                has, or maybe just a one liner to attract
-                                someone to read the blog and click on it
-                            </p>
-                            <p className="blogdate">25/12/2024</p>
-                        </div>
-                    </div>
-                    <div className="blogcard">
-                        <div className="blogcardimg">
-                            <img
-                                className="blogcardpic"
-                                src={blogSampleImg2}
-                                alt=""
-                            />
-                        </div>
-                        <div className="blogcardinfo">
-                            <p className="blogcategory">AI/ML</p>
-                            <p className="blogtitle">
-                                Blog Title Goes Here, Should be Multiline like
-                                this
-                            </p>
-                            <p className="blogauthor">Mr. James Bond</p>
-                            <p className="blogdesc">
-                                A long one liner description about what the blog
-                                has, or maybe just a one liner to attract
-                                someone to read the blog and click on it
-                            </p>
-                            <p className="blogdate">25/12/2024</p>
-                        </div>
-                    </div>
-                    <div className="blogcard">
-                        <div className="blogcardimg">
-                            <img
-                                className="blogcardpic"
-                                src={blogSampleImg2}
-                                alt=""
-                            />
-                        </div>
-                        <div className="blogcardinfo">
-                            <p className="blogcategory">AI/ML</p>
-                            <p className="blogtitle">
-                                Blog Title Goes Here, Should be Multiline like
-                                this
-                            </p>
-                            <p className="blogauthor">Mr. James Bond</p>
-                            <p className="blogdesc">
-                                A long one liner description about what the blog
-                                has, or maybe just a one liner to attract
-                                someone to read the blog and click on it
-                            </p>
-                            <p className="blogdate">25/12/2024</p>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </>

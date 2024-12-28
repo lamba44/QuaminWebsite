@@ -37,6 +37,9 @@ const adminSchema = new mongoose.Schema({
 
 const Admin = mongoose.model("Admin", adminSchema);
 
+// Import the Blog model
+const Blog = require("./models/Blog");
+
 // JWT secret from environment variables
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -150,6 +153,78 @@ app.delete("/api/admin/delete/:id", verifyToken, async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 });
+
+// --------------------------- BLOG FUNCTIONALITY --------------------------- //
+
+// Fetch all blogs
+app.get("/api/blogs", async (req, res) => {
+    try {
+        const blogs = await Blog.find({});
+        res.json(blogs);
+    } catch (err) {
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+// Add a new blog
+app.post("/api/blogs", verifyToken, async (req, res) => {
+    const { title, category, imageUrl, oneLiner, author, content, date } =
+        req.body;
+
+    if (!title || !category || !imageUrl || !oneLiner || !author || !content) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
+
+    try {
+        const newBlog = new Blog({
+            title,
+            category,
+            imageUrl,
+            oneLiner,
+            author,
+            content,
+            date: date || new Date(),
+        });
+
+        await newBlog.save();
+        res.status(201).json({ message: "Blog created successfully" });
+    } catch (err) {
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+// Delete a blog
+app.delete("/api/blogs/:id", verifyToken, async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const deletedBlog = await Blog.findByIdAndDelete(id);
+        if (!deletedBlog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+
+        res.json({ message: "Blog deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+// Fetch a single blog by ID
+app.get("/api/blogs/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const blog = await Blog.findById(id); // MongoDB's findById method
+        if (!blog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+        res.json(blog);
+    } catch (err) {
+        res.status(500).json({ message: "Server error", error: err.message });
+    }
+});
+
+// -------------------------------------------------------------------------- //
 
 // Start the server
 const PORT = process.env.PORT || 5000;
