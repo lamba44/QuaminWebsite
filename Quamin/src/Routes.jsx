@@ -12,6 +12,7 @@ import NotFound404 from "./Pages/NotFound404";
 import Admin from "./Pages/Admin";
 import AdminDashboard from "./Pages/AdminDashboard";
 import AdminControl from "./Pages/AdminControl";
+import BlogControl from "./Pages/BlogControl";
 import BlogHome from "./Pages/BlogHome";
 import BlogIndividual from "./Pages/BlogIndividual";
 
@@ -46,6 +47,14 @@ const AppRoutes = () => {
                     element={
                         <ProtectedRoute>
                             <AdminControl />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admin/dashboard/blogs"
+                    element={
+                        <ProtectedRoute>
+                            <BlogControl />
                         </ProtectedRoute>
                     }
                 />

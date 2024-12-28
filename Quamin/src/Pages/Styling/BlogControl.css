@@ -1,14 +1,15 @@
-.addadmin {
+.addblog {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.addadmininput {
+.addbloginput,
+.addblogtextarea {
     display: block;
     width: max(250px, 25%);
-    background: #fff7cc;
+    background: #f0f8ff;
     padding: 15px;
     border: 0;
     outline: 0;
@@ -19,22 +20,22 @@
     font-weight: 700;
 }
 
-::placeholder {
-    font-weight: 700;
+.addblogtextarea {
+    height: 100px;
 }
 
-.addadminbtn {
+.addblogbtn {
     margin-bottom: 16px;
 }
 
-.adminslistheader {
+.blogslistheader {
     text-align: center;
     font-size: 24px;
     font-weight: 800;
     margin-top: 32px;
 }
 
-.adminslist {
+.blogslist {
     margin-top: 24px;
     margin-bottom: 24px;
     margin-left: auto;
@@ -43,13 +44,13 @@
     flex-direction: column;
     list-style: none;
     width: max(280px, 50%);
-    background-color: #fff7cc;
+    background-color: #f0f8ff;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.adminlistitem {
+.bloglistitem {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,18 +58,18 @@
     border-bottom: 1px solid #ddd;
 }
 
-.adminlistitem:last-child {
+.bloglistitem:last-child {
     border-bottom: none;
 }
 
-.adminusername {
+.remblogtitle {
     font-size: 16px;
     font-weight: 600;
     color: #333;
 }
 
-.adminremovebtn {
-    background-color: #ff0000;
+.blogremovebtn {
+    background-color: #d9534f;
     color: #fff;
     padding: 8px 12px;
     border: none;
@@ -79,6 +80,6 @@
     transition: background-color 0.3s ease;
 }
 
-.adminremovebtn:hover {
-    background-color: #cc0000;
+.blogremovebtn:hover {
+    background-color: #c9302c;
 }
