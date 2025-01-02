@@ -28,7 +28,7 @@ const AdminDashboard = () => {
                 title="Admin Dashboard"
             />
             <div className="adminlogoutbtn">
-                <button onClick={handleLogout} className="btn adminlogout">
+                <button onClick={handleLogout} className="btn">
                     Log Out
                 </button>
             </div>
@@ -44,11 +44,16 @@ const AdminDashboard = () => {
                 </div>
                 <div className="adminitem">
                     <p className="adminitemtitle">Services</p>
-                    <button className="btn">Control</button>
+                    <button className="btn">Coming Soon!</button>
                 </div>
                 <div className="adminitem">
-                    <p className="adminitemtitle">Jobs</p>
-                    <button className="btn">Control</button>
+                    <p className="adminitemtitle">Careers</p>
+                    <button
+                        className="btn"
+                        onClick={() => navigate("/admin/dashboard/careers")}
+                    >
+                        Control
+                    </button>
                 </div>
                 <div className="adminitem">
                     <p className="adminitemtitle">Admins</p>

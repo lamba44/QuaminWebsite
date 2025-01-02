@@ -144,8 +144,6 @@ const BlogControl = () => {
     return (
         <div>
             <Title subTitle="Add/Remove Blogs here" title="Blogs Control" />
-            {error && <p className="error-message">{error}</p>}
-            {success && <p className="success-message">{success}</p>}
 
             <form className="addblog" onSubmit={handleAddBlog}>
                 <input
@@ -213,6 +211,9 @@ const BlogControl = () => {
                     Go Back
                 </button>
             </form>
+
+            {error && <p className="error-message">{error}</p>}
+            {success && <p className="success-message">{success}</p>}
 
             <p className="blogslistheader">Existing Blogs:</p>
             {blogs.length === 0 ? (

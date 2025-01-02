@@ -3,11 +3,6 @@
     justify-content: center;
 }
 
-.adminlogout {
-    background-color: #ff0000;
-    color: #fff;
-}
-
 .admingrid {
     margin-top: 60px;
     display: grid;

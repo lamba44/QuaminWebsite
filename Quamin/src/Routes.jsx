@@ -13,6 +13,7 @@ import Admin from "./Pages/Admin";
 import AdminDashboard from "./Pages/AdminDashboard";
 import AdminControl from "./Pages/AdminControl";
 import BlogControl from "./Pages/BlogControl";
+import JobControl from "./Pages/JobControl";
 import BlogHome from "./Pages/BlogHome";
 import BlogIndividual from "./Pages/BlogIndividual";
 
@@ -58,6 +59,15 @@ const AppRoutes = () => {
                         </ProtectedRoute>
                     }
                 />
+                <Route
+                    path="/admin/dashboard/careers"
+                    element={
+                        <ProtectedRoute>
+                            <JobControl />
+                        </ProtectedRoute>
+                    }
+                />
+
                 <Route path="/*" element={<NotFound404 />} />
             </Routes>
         </Router>

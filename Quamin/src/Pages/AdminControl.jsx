@@ -93,8 +93,6 @@ const AdminControl = () => {
     return (
         <div>
             <Title subTitle="Add/Remove Admins here" title="Admins Control" />
-            {error && <p className="error-message">{error}</p>}
-            {success && <p className="success-message">{success}</p>}
             <form className="addadmin" onSubmit={handleAddAdmin}>
                 <input
                     className="addadmininput"
@@ -123,6 +121,8 @@ const AdminControl = () => {
                     Go Back
                 </button>
             </form>
+            {error && <p className="error-message">{error}</p>}
+            {success && <p className="success-message">{success}</p>}
             <p className="adminslistheader">Existing Admins:</p>
             <ul className="adminslist">
                 {admins.map((admin) => (
