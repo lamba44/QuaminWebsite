@@ -14,13 +14,28 @@ const BlogHome = () => {
                 const response = await axios.get(
                     "http://localhost:5000/api/blogs"
                 );
-                setBlogs(response.data);
+
+                // Sort the blogs in descending order by date (latest first)
+                const sortedBlogs = response.data.sort(
+                    (a, b) => new Date(b.date) - new Date(a.date)
+                );
+
+                setBlogs(sortedBlogs);
             } catch (err) {
                 console.error("Error fetching blogs:", err);
             }
         };
         fetchBlogs();
     }, []);
+
+    // Helper function to format dates as DD Mon YYYY
+    const formatDate = (dateString) => {
+        return new Date(dateString).toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        });
+    };
 
     return (
         <>
@@ -51,7 +66,7 @@ const BlogHome = () => {
                                 <p className="blogauthor">{blog.author}</p>
                                 <p className="blogdesc">{blog.description}</p>
                                 <p className="blogdate">
-                                    {new Date(blog.date).toLocaleDateString()}
+                                    {formatDate(blog.date)}
                                 </p>
                             </div>
                         </div>

@@ -22,6 +22,14 @@ const BlogIndividual = () => {
         fetchBlog();
     }, [id]);
 
+    const formatDate = (dateString) => {
+        return new Date(dateString).toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        });
+    };
+
     if (!blog) return <p>Loading...</p>;
 
     return (
@@ -42,9 +50,9 @@ const BlogIndividual = () => {
             </div>
             <p className="indblogdesc">{blog.description}</p>
             <p className="indblogauthor">{blog.author}</p>
-            <p className="indblogcategory">{`${blog.category}, ${new Date(
-                blog.date
-            ).toLocaleDateString()}`}</p>
+            <p className="indblogcategory">
+                {blog.category} <br /> {formatDate(blog.date)}
+            </p>
             <p className="indblogcontent">{blog.content}</p>
         </div>
     );
