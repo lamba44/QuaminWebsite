@@ -168,10 +168,12 @@ app.get("/api/blogs", async (req, res) => {
 
 // Add a new blog
 app.post("/api/blogs", verifyToken, async (req, res) => {
-    const { title, category, imageUrl, oneLiner, author, content, date } =
+    // UPDATED field names to match your frontend
+    const { title, category, image, description, author, content, date } =
         req.body;
 
-    if (!title || !category || !imageUrl || !oneLiner || !author || !content) {
+    // Validate the required fields
+    if (!title || !category || !image || !description || !author || !content) {
         return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -179,10 +181,11 @@ app.post("/api/blogs", verifyToken, async (req, res) => {
         const newBlog = new Blog({
             title,
             category,
-            imageUrl,
-            oneLiner,
+            image,
+            description,
             author,
             content,
+            // If `date` is not provided, default to current date
             date: date || new Date(),
         });
 

@@ -11,15 +11,18 @@ const BlogControl = () => {
     const [description, setDescription] = useState("");
     const [content, setContent] = useState("");
     const [image, setImage] = useState(""); // URL input for the image
-    const [date, setDate] = useState(""); // Added state for date
+    const [date, setDate] = useState(""); // State for the date
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const navigate = useNavigate();
 
+    // Fetch existing blogs from the server
     const fetchBlogs = async () => {
         try {
             const response = await fetch("http://localhost:5000/api/blogs");
-            if (!response.ok) throw new Error("Failed to fetch blogs.");
+            if (!response.ok) {
+                throw new Error("Failed to fetch blogs.");
+            }
             const data = await response.json();
             console.log("Fetched blogs:", data);
             setBlogs(data);
@@ -29,12 +32,13 @@ const BlogControl = () => {
         }
     };
 
+    // Handle adding a new blog
     const handleAddBlog = async (e) => {
         e.preventDefault();
         setError(null);
         setSuccess(null);
 
-        // Validate if all required fields are filled
+        // Validate required fields
         if (
             !title ||
             !category ||
@@ -61,7 +65,7 @@ const BlogControl = () => {
         console.log("Payload to be sent:", formData);
 
         try {
-            const response = await fetch("http://localhost:5000/api/create", {
+            const response = await fetch("http://localhost:5000/api/blogs", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -87,9 +91,11 @@ const BlogControl = () => {
         }
     };
 
+    // Handle deleting a blog
     const handleDeleteBlog = async (id) => {
         setError(null);
         setSuccess(null);
+
         try {
             const response = await fetch(
                 `http://localhost:5000/api/blogs/${id}`,
@@ -118,17 +124,19 @@ const BlogControl = () => {
         }
     };
 
+    // Reset all form fields
     const resetForm = () => {
         setTitle("");
         setCategory("");
         setAuthor("");
         setDescription("");
         setContent("");
-        setImage(""); // Reset image URL
-        setDate(""); // Reset date
+        setImage("");
+        setDate("");
         console.log("Form reset.");
     };
 
+    // Fetch blogs on component mount
     useEffect(() => {
         fetchBlogs();
     }, []);
@@ -138,6 +146,7 @@ const BlogControl = () => {
             <Title subTitle="Add/Remove Blogs here" title="Blogs Control" />
             {error && <p className="error-message">{error}</p>}
             {success && <p className="success-message">{success}</p>}
+
             <form className="addblog" onSubmit={handleAddBlog}>
                 <input
                     className="addbloginput"
@@ -204,6 +213,7 @@ const BlogControl = () => {
                     Go Back
                 </button>
             </form>
+
             <p className="blogslistheader">Existing Blogs:</p>
             {blogs.length === 0 ? (
                 <p className="noblogs">No blogs available.</p>
