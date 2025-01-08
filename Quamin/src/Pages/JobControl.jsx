@@ -247,7 +247,7 @@ const JobControl = () => {
                                         )}
                                     </div>
                                     <button
-                                        className="btn remove-job-btn"
+                                        className="remove-job-btn"
                                         onClick={() => handleDeleteJob(job._id)}
                                     >
                                         Remove
