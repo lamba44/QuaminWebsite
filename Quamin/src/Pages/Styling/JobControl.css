@@ -1,4 +1,8 @@
-/* JobControl.css */
+.goingbackbtnadmin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Page Container */
 .job-control-page {

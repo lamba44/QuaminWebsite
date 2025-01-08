@@ -44,7 +44,7 @@ const AdminDashboard = () => {
                 </div>
                 <div className="adminitem">
                     <p className="adminitemtitle">Services</p>
-                    <button className="btn">Coming Soon!</button>
+                    <button className="btn">Control</button>
                 </div>
                 <div className="adminitem">
                     <p className="adminitemtitle">Careers</p>

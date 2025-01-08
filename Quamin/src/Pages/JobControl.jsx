@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Styling/JobControl.css";
 import Title from "../Components/Title/Title";
 
 const JobControl = () => {
+    const navigate = useNavigate();
+
     // States for Jobs and Applicants
     const [jobs, setJobs] = useState([]);
     const [applicants, setApplicants] = useState([]);
@@ -142,6 +145,16 @@ const JobControl = () => {
                 title="Careers Control"
             />
 
+            <div className="goingbackbtnadmin">
+                <button
+                    className="btn gobackbtn"
+                    type="button"
+                    onClick={() => navigate("/admin/dashboard")}
+                >
+                    Go Back
+                </button>
+            </div>
+
             <div className="job-control-container">
                 {/* Display errors or success messages */}
                 {error && <p className="error-message">{error}</p>}
@@ -149,7 +162,7 @@ const JobControl = () => {
 
                 {/* Add New Job Form */}
                 <div className="add-job-section">
-                    <h2 className="section-heading">Add a New Job</h2>
+                    <h2 className="section-heading">Add a New Job Listing</h2>
                     <form className="add-job-form" onSubmit={handleAddJob}>
                         <div className="form-group">
                             <label htmlFor="job-title">Title*</label>
@@ -219,14 +232,14 @@ const JobControl = () => {
                         </div>
 
                         <button type="submit" className="btn add-job-btn">
-                            Add Job
+                            Add Listing
                         </button>
                     </form>
                 </div>
 
                 {/* Existing Jobs List */}
                 <div className="existing-jobs-section">
-                    <h2 className="section-heading">Existing Jobs</h2>
+                    <h2 className="section-heading">Existing Job Listings</h2>
                     {jobs.length === 0 ? (
                         <p className="no-jobs">No jobs are currently listed.</p>
                     ) : (
