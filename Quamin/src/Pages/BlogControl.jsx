@@ -145,6 +145,16 @@ const BlogControl = () => {
         <div>
             <Title subTitle="Add/Remove Blogs here" title="Blogs Control" />
 
+            <div className="goingbackbtnadmin">
+                <button
+                    className="btn gobackbtn"
+                    type="button"
+                    onClick={() => navigate("/admin/dashboard")}
+                >
+                    Go Back
+                </button>
+            </div>
+
             <form className="addblog" onSubmit={handleAddBlog}>
                 <input
                     className="addbloginput"
@@ -202,13 +212,6 @@ const BlogControl = () => {
                 />
                 <button className="btn addblogbtn" type="submit">
                     Add Blog
-                </button>
-                <button
-                    className="btn gobackbtn"
-                    type="button"
-                    onClick={() => navigate("/admin/dashboard")}
-                >
-                    Go Back
                 </button>
             </form>
 

@@ -227,7 +227,11 @@ app.get("/api/blogs/:id", async (req, res) => {
     }
 });
 
-// -------------------------------------------------------------------------- //
+// Import the new Job routes
+const jobRoutes = require("./routes/jobRoutes");
+
+// Use the new Job + Applicant routes, prefixed by /api
+app.use("/api", jobRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;

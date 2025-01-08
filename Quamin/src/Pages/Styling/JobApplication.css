@@ -1,0 +1,98 @@
+.homebtnblogs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Overall page container */
+.job-application-page {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Available Jobs Section */
+.available-jobs-section {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 10px;
+}
+
+.jobs-heading {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.no-jobs-text {
+    color: #888;
+    font-style: italic;
+}
+
+.jobs-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.job-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.job-title {
+    margin: 0 0 5px;
+    font-size: 1.2rem;
+}
+
+.job-description {
+    margin: 0;
+    color: #555;
+}
+
+/* Application Form Section */
+.application-form-section {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px;
+}
+
+.apply-heading {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Form */
+.job-application-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}

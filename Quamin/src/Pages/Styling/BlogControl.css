@@ -6,6 +6,12 @@
     margin-bottom: 8px;
 }
 
+.goingbackbtnadmin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .addbloginput,
 .addblogtextarea {
     display: block;
