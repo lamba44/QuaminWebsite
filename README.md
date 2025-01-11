@@ -89,12 +89,7 @@ Hover over each card to reveal detailed mission statements, expertise insights, 
 
 ---
 
-## License
+## Collaborators
 
-Licensed under the **MIT License**. You are free to enhance or adapt any part of this application for your own needs.
-
----
-
-### Thank you for checking out **Quamin Website**!
-
-Feel free to explore the UI, try out service bookings or job applications, and if you have admin access, dive into the dashboard. Any feedback or suggestions to improve this platform are always welcome.
+- **Saksham Lamba** [GitHub](https://github.com/lamba44)
+- **Eshaan Gupta** [GitHub](https://github.com/EshaanGupta1011)
