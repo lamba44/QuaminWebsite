@@ -1,0 +1,176 @@
+.homebtnblogs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container for the page */
+.service-booking-page {
+    padding: 20px 0;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.service-booking-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.service-booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #f8f8f8;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.service-booking-heading {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+/* Services Cards at the top */
+.services-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    padding: 0 15px;
+    margin-top: 24px;
+}
+
+.service-card {
+    flex: 1 1 250px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    min-width: 220px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.service-card-name {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.service-card-desc {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-section label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-section input,
+.form-section select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Scheduling section */
+.booking-schedule {
+    margin-top: 15px;
+}
+
+.schedule-heading {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.dates-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.date-button {
+    background: #eee;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    width: 160px; /* fixed width for uniform layout */
+    text-align: center;
+}
+
+.date-button-selected {
+    background: #007bff;
+    color: #fff;
+}
+
+/* Time Slots Section */
+.time-slots-section {
+    margin-bottom: 20px;
+}
+
+.time-slots-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.slot-button {
+    padding: 6px 8px;
+    border: none;
+    border-radius: 4px;
+    background: #eee;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 70px; /* fixed width for uniform layout */
+    text-align: center;
+}
+
+.slot-button.slot-selected {
+    background: #007bff;
+    color: #fff;
+}
+
+.slot-button.slot-booked {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Submit Button */
+.booking-submit-btn {
+    align-self: flex-start;
+    background: #28a745;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .services-cards-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .dates-row {
+        flex-direction: column;
+    }
+    .time-slots-grid {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

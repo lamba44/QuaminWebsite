@@ -1,35 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Careers.css";
-import gallery_1 from "../../assets/salesmanager.webp";
-import gallery_2 from "../../assets/cybersecurity.webp";
-import gallery_3 from "../../assets/enterprisearchitect.webp";
-import gallery_4 from "../../assets/accountmanager.webp";
+import gallery_1 from "../../assets/careers_1.png";
+import gallery_2 from "../../assets/careers_2.png";
+import gallery_3 from "../../assets/careers_3.png";
+import gallery_4 from "../../assets/careers_4.png";
 
 const jobData = [
     {
         img: gallery_1,
-        title: "IT Sales Manager",
+        title: "Diversity Drives Innovation",
         description:
-            "Oversee sales operations and develop strategies to drive sales growth.",
+            "Be part of an inclusive workplace where diverse ideas lead to groundbreaking solutions.",
     },
     {
         img: gallery_2,
-        title: "Cybersecurity Specialist",
+        title: "Learn from Industry Leaders",
         description:
-            "Protect our digital assets and ensure the security of our systems.",
+            "Collaborate with experienced professionals and industry experts.",
     },
     {
         img: gallery_3,
-        title: "Enterprise Architect",
+        title: "Balanced Work-Life Culture",
         description:
-            "Design and manage our enterprise infrastructure and technology solutions.",
+            "Enjoy a flexible and balanced work environment that promotes well-being.",
     },
     {
         img: gallery_4,
-        title: "Account Manager",
+        title: "Achieve Career Milestones",
         description:
-            "Maintain client relationships and manage accounts to meet sales targets.",
+            "Unlock opportunities to grow your career and achieve your professional goals.",
     },
 ];
 

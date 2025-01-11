@@ -233,6 +233,14 @@ const jobRoutes = require("./routes/jobRoutes");
 // Use the new Job + Applicant routes, prefixed by /api
 app.use("/api", jobRoutes);
 
+// ...
+// Import the new Service routes (similar to jobRoutes)
+const serviceRoutes = require("./routes/serviceRoutes");
+
+// Use them, prefixed by /api (as you did for jobRoutes)
+app.use("/api", serviceRoutes);
+
+// ...
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

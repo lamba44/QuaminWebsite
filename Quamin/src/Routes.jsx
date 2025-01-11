@@ -17,6 +17,9 @@ import JobControl from "./Pages/JobControl";
 import BlogHome from "./Pages/BlogHome";
 import BlogIndividual from "./Pages/BlogIndividual";
 
+// Import ServiceControl
+import ServiceControl from "./Pages/ServiceControl";
+
 const isAuthenticated = () => {
     return !!localStorage.getItem("jwtToken");
 };
@@ -64,6 +67,14 @@ const AppRoutes = () => {
                     element={
                         <ProtectedRoute>
                             <JobControl />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admin/dashboard/services"
+                    element={
+                        <ProtectedRoute>
+                            <ServiceControl />
                         </ProtectedRoute>
                     }
                 />

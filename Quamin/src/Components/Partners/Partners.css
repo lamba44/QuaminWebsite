@@ -1,0 +1,41 @@
+.ourpartners {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.partnerlogocontainer {
+    height: 100px;
+    width: auto;
+}
+
+.partnerlogo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1110px) {
+    .partnerlogocontainer {
+        height: 80px;
+    }
+}
+
+@media (max-width: 900px) {
+    .partnerlogocontainer {
+        height: 60px;
+    }
+}
+
+@media (max-width: 660px) {
+    .partnerlogocontainer {
+        height: 40px;
+    }
+}
+
+@media (max-width: 450px) {
+    .ourpartners {
+        flex-direction: column;
+        height: 20vh;
+    }
+}

@@ -44,7 +44,12 @@ const AdminDashboard = () => {
                 </div>
                 <div className="adminitem">
                     <p className="adminitemtitle">Services</p>
-                    <button className="btn">Control</button>
+                    <button
+                        className="btn"
+                        onClick={() => navigate("/admin/dashboard/services")}
+                    >
+                        Control
+                    </button>
                 </div>
                 <div className="adminitem">
                     <p className="adminitemtitle">Careers</p>

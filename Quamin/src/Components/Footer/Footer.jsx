@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div className="footer">
             <p>
-                © 2024 <Link to="/admin">Quamin</Link> Tech Solutions LLP. All
+                © 2025 <Link to="/admin">Quamin</Link> Tech Solutions LLP. All
                 Rights Reserved.
             </p>
             <ul>

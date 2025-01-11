@@ -48,8 +48,9 @@ const Contact = () => {
                         <i className="fa-solid fa-phone"></i>+91 999 1115 557
                     </li>
                     <li>
-                        <i className="fa-solid fa-location-dot"></i>153-155
-                        Franklin Street, New York, New York
+                        <i className="fa-solid fa-location-dot"></i>Shriram
+                        Surabhi, Opp. KSSEM College, Mallasandra, Off Kanakpura
+                        Road, Bangalore - 560109
                     </li>
                     <li className="contactsocialiconsmobile">
                         <a
