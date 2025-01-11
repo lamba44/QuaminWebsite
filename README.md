@@ -1,80 +1,100 @@
-# Quamin Tech Solutions LLP - Website Update README
+# Quamin Website
+
+A visually rich, full-stack web application offering **IT services, job applications, blog posts, and an admin dashboard** for streamlined management. The platform is designed to showcase how modern front-end and back-end technologies come together to deliver a comprehensive solution.
+
+![Hero Banner](./Quamin/src/assets/screenshots/heroimg.png)
+
+---
 
 ## Overview
 
-This README outlines the recent updates to the Quamin Tech Solutions LLP website. The objective of these updates is to enhance the user experience, showcase our services effectively, and reflect the core mission and values of our company.
+**Quamin** is built with aesthetics and functionality in mind. It includes:
+
+-   **Landing Page**: An engaging introduction, highlighting key services.
+-   **Service Booking**: A curated set of services, date/time slot selection, and an automatic conflict check.
+-   **Job Application**: Potential candidates submit personal/contact info and a resume link.
+-   **Blog**: Displays up-to-date posts and detailed views.
+-   **About Us**: A hover-based overlay design showing the company’s mission, expertise, and approach.
+
+Meanwhile, the **Admin** experience provides:
+
+-   **Services Management**: Add/update/delete available services.
+-   **Bookings Management**: View upcoming and past bookings, update statuses (Pending, Completed, Cancelled).
+-   **Job Applications**: Review submitted applications in one place.
+-   **Blog Management**: Create, modify, or remove blog posts.
+-   **Secure Admin Access**: JWT-protected routes ensure only authorized admins can manage platform data.
 
 ---
 
-## New Website Structure
+## Key Features
 
-### 1. **Homepage**
+-   **Responsive Front-End**  
+    Built with React and a flexible CSS approach, ensuring it looks great on desktop, tablet, and mobile.
 
--   Featured Logo and Tagline: “Where mind meets technology”
--   Navigation Menu: Home, About Us, Services, Careers, Testimonials, Contact Us.
--   Clear call-to-action button: “Explore More” which directs users to learn more about the company.
+-   **Time-Slot Conflict**  
+    Any already-booked date/time slots are hidden from new bookings, preventing overlaps.
 
-### 2. **About Us**
+-   **Dynamic Hover Cards**  
+    The About Us section uses overlays that show additional info when users hover over each card.
 
-#### Who We Are
+-   **Admin Dashboard**  
+    A centralized place to handle all data—services, bookings, blogs, and job applications.
 
--   A section highlighting the company's mission and expertise.
-
-#### Our Mission
-
--   A commitment to providing tailored IT solutions that meet the distinct needs of every client.
-
-#### Our Expertise
-
--   Focus on areas like cloud engineering, cybersecurity, DevOps, generative AI, and database administration.
-
-#### Our Approach
-
--   Personalised IT consulting strategies to guide clients through challenges.
-
-### 3. **Our Services**
-
--   **Comprehensive IT Consulting**:
-
-    -   Expert IT strategy consulting aligns IT infrastructure with business objectives.
-    -   Tailored cloud computing services to enhance efficiency and innovation.
-    -   Cybersecurity consulting to protect against threats.
-    -   Data analytics consulting to drive growth and innovation.
-    -   Managed IT services for day-to-day support and reduced costs.
-    -   Digital transformation consulting for navigating the evolving digital landscape.
-
--   Call-to-action button: “Book Now” for scheduling consultations.
-
-### 4. **Careers**
-
--   Display of open positions:
--   Clear descriptions for each role.
--   Call-to-action button: “Apply Now” to encourage applications.
-
-### 5. **Testimonials**
-
--   Showcase feedback from clients highlighting their experiences with Quamin Tech Solutions.
-
-### 6. **Contact Us**
-
--   Section for user inquiries showcasing contact details.
--   User-friendly contact form for direct communication with fields for name, contact number, email, and message.
-
-#### Additional Information
-
--   Copyright message: “© 2024 Quamin Tech Solutions LLP. All Rights Reserved.”
--   Links to Terms of Service and Privacy Policy.
+-   **JWT-Based Security**  
+    Admin routes are protected. Only valid tokens can create/update/delete resources in sensitive areas.
 
 ---
 
-## Conclusion
+## Screenshots
 
-The updates to the Quamin Tech Solutions LLP website are intended to provide a seamless user experience while making our overarching mission and services clearer to visitors. Feedback from users will be welcomed to ensure continuous improvement and relevance in our offerings.
+### Service Booking
+
+![Service Booking](./Quamin/src/assets/screenshots/servicesimg.png)  
+Browse or search available services, choose a date, and book an available time slot.
+
+### Job Application
+
+![Job Application](./Quamin/src/assets/screenshots/jobapplicationimg.png)  
+Applicants fill in basic details and upload a resume link to apply for open positions.
+
+### Admin Dashboard
+
+![Admin Dashboard](./Quamin/src/assets/screenshots/admincontrolimg.png)  
+Admin users can manage bookings, blog posts, services, and job applications in one interface.
+
+### About Us
+
+![About Us](./Quamin/src/assets/screenshots/aboutusimg.png)  
+Hover over each card to reveal detailed mission statements, expertise insights, and approach.
 
 ---
 
-## Credits
+## Technology Highlights
 
--   Development Team: Eshaan Gupta, Saksham Lamba
+-   **Front-End**:
 
-## Other helps or developers:
+    -   **React (Vite)** for a lightweight yet robust development experience
+    -   **CSS** (modules/custom) for styling and responsiveness
+    -   **Axios** for seamless HTTP requests
+
+-   **Back-End**:
+
+    -   **Node.js & Express** powering RESTful APIs
+    -   **MongoDB (Mongoose)** for a flexible, scalable data layer
+    -   **JWT** for user/admin authentication
+
+-   **Design Aesthetics**:
+    -   Consistent color palette and hover animations
+    -   Minimal but functional UI elements for quick user adoption
+
+---
+
+## License
+
+Licensed under the **MIT License**. You are free to enhance or adapt any part of this application for your own needs.
+
+---
+
+### Thank you for checking out **Quamin Website**!
+
+Feel free to explore the UI, try out service bookings or job applications, and if you have admin access, dive into the dashboard. Any feedback or suggestions to improve this platform are always welcome.

@@ -80,15 +80,15 @@ const Admin = () => {
                 />
 
                 <div className="adminbtns">
-                    <button type="submit" className="btn">
-                        Log In
-                    </button>
                     <button
                         type="button"
                         className="btn"
                         onClick={() => navigate("/")}
                     >
                         Go Home
+                    </button>
+                    <button type="submit" className="btn">
+                        Log In
                     </button>
                 </div>
             </form>
