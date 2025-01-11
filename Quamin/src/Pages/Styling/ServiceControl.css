@@ -1,0 +1,149 @@
+.goingbackbtnadmin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-control-page {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.service-control-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Messages */
+.service-error-message {
+    color: #d9534f;
+    margin-bottom: 15px;
+}
+.service-success-message {
+    color: #5cb85c;
+    margin-bottom: 15px;
+}
+
+/* Add Service */
+.add-service-section {
+    margin-bottom: 30px;
+}
+.service-section-heading {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+.add-service-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.add-service-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.add-service-form input[type="text"] {
+    flex: 1 1 200px;
+    min-width: 180px;
+}
+.add-service-btn {
+    padding: 8px 16px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Existing Services */
+.existing-services-section {
+    margin-bottom: 30px;
+}
+.no-services {
+    font-style: italic;
+    color: #777;
+}
+.services-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.service-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f6f6f6;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+.service-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.service-name {
+    font-weight: 600;
+}
+.service-description {
+    font-size: 0.9rem;
+    color: #666;
+}
+.remove-service-btn {
+    background: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Bookings Table */
+.bookings-section {
+    margin-bottom: 30px;
+}
+.no-bookings {
+    font-style: italic;
+    color: #777;
+}
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    margin-bottom: 20px;
+}
+.bookings-table th,
+.bookings-table td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+}
+.bookings-table th {
+    background: #f2f2f2;
+}
+
+/* The <select> in the status column */
+.status-dropdown {
+    font-weight: bold; /* bold black text */
+    color: #000;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Status background color classes */
+.status-pending {
+    background-color: #ffd700; /* gold */
+}
+
+.status-completed {
+    background-color: #90ee90; /* light green */
+}
+
+.status-cancelled {
+    background-color: #ff7f7f; /* light red */
+}

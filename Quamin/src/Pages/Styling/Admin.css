@@ -1,0 +1,79 @@
+.background {
+    background-image: url("../../assets/adminLoginBg.webp");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.adminloginform {
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 30px;
+    padding: 50px 35px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+}
+
+.adminloginform * {
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+.adminloginform h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+.adminlabel {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.admininput {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #0a0a0a;
+    font-weight: 700;
+}
+
+::placeholder {
+    color: #0a0a0a75;
+}
+
+.adminbtns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.error-message {
+    text-align: center;
+    color: #ff0000;
+    font-weight: 600;
+}
+
+.success-message {
+    text-align: center;
+    color: #50c878;
+    font-weight: 600;
+}

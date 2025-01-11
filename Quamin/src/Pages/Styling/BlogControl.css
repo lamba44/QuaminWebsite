@@ -1,0 +1,92 @@
+.addblog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+.goingbackbtnadmin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addbloginput,
+.addblogtextarea {
+    display: block;
+    width: max(250px, 25%);
+    background: #f0f8ff;
+    padding: 15px;
+    border: 0;
+    outline: 0;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    resize: none;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.addblogtextarea {
+    height: 100px;
+}
+
+.addblogbtn {
+    margin-bottom: 16px;
+}
+
+.blogslistheader {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin-top: 32px;
+}
+
+.blogslist {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: max(280px, 50%);
+    background-color: #f0f8ff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bloglistitem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.bloglistitem:last-child {
+    border-bottom: none;
+}
+
+.remblogtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.blogremovebtn {
+    background-color: #d9534f;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.blogremovebtn:hover {
+    background-color: #c9302c;
+}
