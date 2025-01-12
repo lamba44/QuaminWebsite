@@ -123,6 +123,13 @@
     transform: translateY(-5px);
 }
 
+.successmsgcontact {
+    font-size: 14px;
+    font-weight: 700;
+    color: green;
+    margin-top: 8px;
+}
+
 /* Media Query */
 
 @media (max-width: 700px) {

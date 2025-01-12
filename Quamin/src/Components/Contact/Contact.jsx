@@ -12,9 +12,12 @@ const Contact = () => {
         setSubmitting(true);
 
         emailjs
-            .sendForm("service_dh7tt5h", "template_onbsrie", form.current, {
-                publicKey: "w8gvnVlMTQqOdjzRm",
-            })
+            .sendForm(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                form.current,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            )
             .then(
                 () => {
                     setSucceeded(true);
@@ -31,7 +34,8 @@ const Contact = () => {
         <div className="contact">
             <div className="contact-col">
                 <h3>
-                    Send us a Message<i className="fa-solid fa-message"></i>
+                    Send us a Message
+                    <i className="fa-solid fa-message"></i>
                 </h3>
                 <p>
                     At Quamin, we deliver tailored IT solutions designed to meet
@@ -42,10 +46,12 @@ const Contact = () => {
                 </p>
                 <ul>
                     <li>
-                        <i className="fa-solid fa-envelope"></i>info@quamin.in
+                        <i className="fa-solid fa-envelope"></i>
+                        info@quamin.in
                     </li>
                     <li>
-                        <i className="fa-solid fa-phone"></i>80-495749944
+                        <i className="fa-solid fa-phone"></i>
+                        80-495749944
                     </li>
                     <li>
                         <i className="fa-solid fa-location-dot"></i>Shriram
@@ -130,7 +136,11 @@ const Contact = () => {
                     >
                         Submit
                     </button>
-                    {succeeded && <p>Form Submitted Successfully!</p>}
+                    {succeeded && (
+                        <p className="successmsgcontact">
+                            Form Submitted Successfully!
+                        </p>
+                    )}
                 </form>
             </div>
         </div>
