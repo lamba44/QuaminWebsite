@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Careers.css";
-import gallery_1 from "../../assets/careers_1.png";
-import gallery_2 from "../../assets/careers_2.png";
-import gallery_3 from "../../assets/careers_3.png";
-import gallery_4 from "../../assets/careers_4.png";
+import gallery_1 from "../../assets/careers_1.webp";
+import gallery_2 from "../../assets/careers_2.webp";
+import gallery_3 from "../../assets/careers_3.webp";
+import gallery_4 from "../../assets/careers_4.webp";
 
 const jobData = [
     {

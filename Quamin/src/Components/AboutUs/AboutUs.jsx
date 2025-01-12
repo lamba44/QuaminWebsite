@@ -16,13 +16,20 @@ const AboutUs = () => {
 
     return (
         <div className="aboutus">
-            <div className="about" onClick={() => toggleVisibility(0)}>
+            <div
+                className="about"
+                onClick={() => toggleVisibility(0)}
+                role="button"
+                tabIndex={0}
+            >
                 <img src={about_1} alt="" />
-                <div className={`caption ${visibleIndex === 0 ? "show" : ""}`}>
+                <div
+                    className={`caption ${
+                        visibleIndex === 0 ? "show-text" : "show-heading"
+                    }`}
+                >
                     {visibleIndex === 0 ? (
                         <p>
-                            Our Mission
-                            <br />
                             At Quamin, our mission is to deliver exceptional IT
                             services tailored to both small and large
                             businesses. We aim to harness technology to empower
@@ -38,13 +45,20 @@ const AboutUs = () => {
                     )}
                 </div>
             </div>
-            <div className="about" onClick={() => toggleVisibility(1)}>
+            <div
+                className="about"
+                onClick={() => toggleVisibility(1)}
+                role="button"
+                tabIndex={0}
+            >
                 <img src={about_2} alt="" />
-                <div className={`caption ${visibleIndex === 1 ? "show" : ""}`}>
+                <div
+                    className={`caption ${
+                        visibleIndex === 1 ? "show-text" : "show-heading"
+                    }`}
+                >
                     {visibleIndex === 1 ? (
                         <p>
-                            Our Expertise
-                            <br />
                             Our team of seasoned IT professionals brings a
                             wealth of expertise across various domains,
                             including cybersecurity, cloud computing, and
@@ -58,13 +72,20 @@ const AboutUs = () => {
                     )}
                 </div>
             </div>
-            <div className="about" onClick={() => toggleVisibility(2)}>
+            <div
+                className="about"
+                onClick={() => toggleVisibility(2)}
+                role="button"
+                tabIndex={0}
+            >
                 <img src={about_3} alt="" />
-                <div className={`caption ${visibleIndex === 2 ? "show" : ""}`}>
+                <div
+                    className={`caption ${
+                        visibleIndex === 2 ? "show-text" : "show-heading"
+                    }`}
+                >
                     {visibleIndex === 2 ? (
                         <p>
-                            Our Approach
-                            <br />
                             We adopt a personalized approach to every client,
                             collaborating closely to understand their specific
                             challenges and crafting customized solutions that

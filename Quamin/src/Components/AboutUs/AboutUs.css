@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    flex-wrap: wrap;
 }
 
 .about img {
@@ -16,7 +16,7 @@
 .about {
     flex-basis: 31%;
     position: relative;
-    margin-bottom: 20px; /* Add margin for better spacing on smaller screens */
+    margin-bottom: 20px;
 }
 
 .caption {
@@ -33,24 +33,24 @@
     flex-direction: column;
     color: #fafafa;
     cursor: pointer;
-    opacity: 0;
-    padding: 20px; /* Add padding for better spacing */
+    padding: 20px;
     transition: 0.5s;
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    box-sizing: border-box;
 }
 
-.caption img {
+/* Default display: Heading */
+.show-heading img {
     width: 60px;
     margin-bottom: 10px;
 }
 
-.caption h3 {
+.show-heading h3 {
     margin: 0;
     font-size: 18px;
 }
 
-.caption p {
-    display: none;
+/* Display: Text */
+.show-text p {
     margin: 0;
     text-align: justify;
     text-justify: inter-word;
@@ -60,39 +60,34 @@
     font-weight: 600;
 }
 
-.caption.show p {
-    display: block;
-}
-
-.caption.show img,
-.caption.show h3 {
-    opacity: 0;
-}
-
-.about:hover .caption {
-    opacity: 1;
-    padding-top: 0;
-}
-
 /* Media Query */
-@media (max-width: 650px) {
+@media (max-width: 1100px) {
+    .show-text p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 820px) {
     .aboutus {
         flex-direction: column;
     }
+
+    .show-text p {
+        font-size: 18px;
+    }
+
     .about {
         flex-basis: 100%;
-        margin: 20px 0; /* Ensure consistent spacing */
+        margin: 20px 0;
     }
-    .caption {
-        opacity: 1; /* Ensure the caption is always visible on mobile */
-        padding-top: 20px; /* Reduce padding for mobile */
+
+    .show-heading h3 {
+        font-size: 16px;
     }
-    .caption.show img,
-    .caption.show h3 {
-        opacity: 0;
-    }
-    .caption p {
-        display: block; /* Ensure paragraph is displayed on mobile */
-        font-size: 14px; /* Adjust font size for readability */
+}
+
+@media (max-width: 400px) {
+    .show-text p {
+        font-size: 14px;
     }
 }

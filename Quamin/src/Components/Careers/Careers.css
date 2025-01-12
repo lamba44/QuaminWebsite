@@ -15,6 +15,7 @@
 .gallery-item {
     position: relative;
     width: calc(25% - 20px);
+    aspect-ratio: 1 / 1; /* Ensures a square card */
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -24,8 +25,7 @@
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover; /* Ensures the image covers the card without stretching */
     border-radius: 10px;
 }
 
@@ -38,23 +38,27 @@
     border-radius: 10px;
     background-color: rgba(255, 215, 0, 0.75);
     color: #0a0a0a;
-    opacity: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
     transition: opacity 0.5s ease;
+    box-sizing: border-box;
+    opacity: 0;
 }
 
 .gallery-item:hover .overlay {
     opacity: 1;
 }
 
-/* Media Query */
 @media (max-width: 800px) {
     .gallery-item {
         width: calc(50% - 10px);
+    }
+
+    .overlay {
+        opacity: 1; /* Show overlay by default */
     }
 }
 

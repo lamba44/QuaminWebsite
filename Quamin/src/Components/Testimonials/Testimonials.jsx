@@ -1,118 +1,67 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./Testimonials.css";
-import next_icon from "../../assets/next_icon.webp";
-import back_icon from "../../assets/back_icon.webp";
-import user_1 from "../../assets/user-1.webp";
-import user_2 from "../../assets/user-2.webp";
-import user_3 from "../../assets/user-3.webp";
-import user_4 from "../../assets/user-4.webp";
+import user_1 from "../../assets/jojyjoseph.webp";
+import user_2 from "../../assets/sudhanshutripathi.webp";
+import user_3 from "../../assets/ranjansrivastva.webp";
+import user_4 from "../../assets/sudhirk.webp";
+
+const testimonialsData = [
+    {
+        img: user_1,
+        name: "Jojy Joseph",
+        title: "Director, Aspire Fire & Safety",
+        feedback:
+            "I have had the pleasure of working with Quamin Tech Solutions LLP, and I must say, their expertise and professionalism are top-notch. Their team delivered exceptional results, exceeding our expectations in terms of quality, timelines, and budget. I highly recommend Quamin Tech Solutions LLP to anyone seeking innovative, reliable, and high-quality tech solutions.",
+    },
+    {
+        img: user_2,
+        name: "Sudhanshu Tripathi",
+        title: "Senior DevOps Manager",
+        feedback:
+            "I've had the pleasure of collaborating with Quamin Tech Solutions LLP on several projects, and their expertise in AI-powered solutions has been instrumental in driving innovation at my organisation. Their team's ability to understand our complex requirements, design tailored solutions, and deliver high-quality results has been impressive.",
+    },
+    {
+        img: user_3,
+        name: "Ranjan Srivastva",
+        title: "General Manager, KI Mobility Solution Pvt. Ltd.",
+        feedback:
+            "I was blown away by the exceptional service and expertise provided by Quamin Tech Solutions LLP. Their team helped us implement a customized solution that streamlined our operations and improved efficiency. The level of professionalism, attention to detail, and dedication to customer satisfaction was outstanding.",
+    },
+    {
+        img: user_4,
+        name: "Sudhir K.",
+        title: "Bengaluru, India",
+        feedback:
+            "I've worked with Quamin Tech Solutions LLP and found their services to be satisfactory. They provided a solution that met my IT requirements and helped me achieve my goals. Their team was responsive and addressed my concerns in a timely manner. Overall, my experience with Quamin Tech Solutions LLP was positive.",
+    },
+];
 
 const Testimonials = () => {
-    const slider = useRef();
-    let tx = 0;
-
-    const slideForward = () => {
-        if (tx > -50) {
-            tx -= 25;
-        }
-        slider.current.style.transform = `translateX(${tx}%)`;
-    };
-    const slideBackward = () => {
-        if (tx < 0) {
-            tx += 25;
-        }
-        slider.current.style.transform = `translateX(${tx}%)`;
-    };
-
     return (
-        <div className="testimonials">
-            <img
-                src={next_icon}
-                alt="next item"
-                className="next-btn"
-                onClick={slideForward}
-            />
-            <img
-                src={back_icon}
-                alt="previous item"
-                className="back-btn"
-                onClick={slideBackward}
-            />
-            <div className="slider">
-                <ul ref={slider}>
-                    <li>
-                        <div className="slide">
-                            <div className="user-info">
-                                <img src={user_1} alt="user 1" />
-                                <div>
-                                    <h3>William Bowery</h3>
-                                    <span>Independent Songwriter, UK</span>
-                                </div>
+        <div className="testimonials-section testimonials">
+            <div className="testimonials-grid">
+                {testimonialsData.map((testimonial, index) => (
+                    <div className="testimonial-card" key={index}>
+                        <div className="testimonial-header">
+                            <img
+                                src={testimonial.img}
+                                alt={testimonial.name}
+                                className="testimonial-img"
+                            />
+                            <div>
+                                <h3 className="testimonial-name">
+                                    {testimonial.name}
+                                </h3>
+                                <p className="testimonial-title">
+                                    {testimonial.title}
+                                </p>
                             </div>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Velit animi assumenda in
-                                architecto quia ratione amet veritatis facilis
-                                tempore ducimus fugit sequi nulla nam harum
-                                delectus sint aliquam, natus pariatur?
-                            </p>
                         </div>
-                    </li>
-                    <li>
-                        <div className="slide">
-                            <div className="user-info">
-                                <img src={user_2} alt="user 2" />
-                                <div>
-                                    <h3>Jack Antonoff</h3>
-                                    <span>LMN Tech, USA</span>
-                                </div>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Velit animi assumenda in
-                                architecto quia ratione amet veritatis facilis
-                                tempore ducimus fugit sequi nulla nam harum
-                                delectus sint aliquam, natus pariatur?
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="slide">
-                            <div className="user-info">
-                                <img src={user_3} alt="user 3" />
-                                <div>
-                                    <h3>Nils Sjöberg</h3>
-                                    <span>Independent Songwriter, USA</span>
-                                </div>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Velit animi assumenda in
-                                architecto quia ratione amet veritatis facilis
-                                tempore ducimus fugit sequi nulla nam harum
-                                delectus sint aliquam, natus pariatur?
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="slide">
-                            <div className="user-info">
-                                <img src={user_4} alt="user 4" />
-                                <div>
-                                    <h3>Travis Kelce</h3>
-                                    <span>Kansas City Chiefs, USA</span>
-                                </div>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Velit animi assumenda in
-                                architecto quia ratione amet veritatis facilis
-                                tempore ducimus fugit sequi nulla nam harum
-                                delectus sint aliquam, natus pariatur?
-                            </p>
-                        </div>
-                    </li>
-                </ul>
+                        <p className="testimonial-feedback">
+                            {testimonial.feedback}
+                        </p>
+                    </div>
+                ))}
             </div>
         </div>
     );

@@ -45,12 +45,12 @@ const Contact = () => {
                         <i className="fa-solid fa-envelope"></i>info@quamin.in
                     </li>
                     <li>
-                        <i className="fa-solid fa-phone"></i>+91 999 1115 557
+                        <i className="fa-solid fa-phone"></i>80-495749944
                     </li>
                     <li>
                         <i className="fa-solid fa-location-dot"></i>Shriram
                         Surabhi, Opp. KSSEM College, Mallasandra, Off Kanakpura
-                        Road, Bangalore - 560109
+                        Road, Bengaluru - 560109
                     </li>
                     <li className="contactsocialiconsmobile">
                         <a
@@ -78,7 +78,7 @@ const Contact = () => {
                             <i className="fa-brands fa-github"></i>
                         </a>
                         <a
-                            href="https://www.youtube.com/"
+                            href="https://www.youtube.com/@quamintech"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="youtube"
