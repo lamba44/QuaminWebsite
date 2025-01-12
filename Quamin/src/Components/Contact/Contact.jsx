@@ -67,22 +67,7 @@ const Contact = () => {
                         >
                             <i className="fa-brands fa-linkedin-in"></i>
                         </a>
-                        <a
-                            href="https://www.facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="facebook"
-                        >
-                            <i className="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a
-                            href="https://github.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="github"
-                        >
-                            <i className="fa-brands fa-github"></i>
-                        </a>
+
                         <a
                             href="https://www.youtube.com/@quamintech"
                             target="_blank"
